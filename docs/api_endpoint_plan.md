@@ -53,3 +53,16 @@
 | GET | /api/events/{eventId}/enrollments | Retrieves every participant enrolled in a specific event, so the organiser can manage race-day logistics. | Organiser (owner of event) | None | 200 OK - array of enrolment objects. 403 Forbidden - event belongs to a different organiser. |
 | POST | /api/enrollments | Enrols the logged-in participant into an event by selecting one of its categories, recording the link between Participant, Event, and Category. | Participant | { eventId, categoryId } | 201 Created - enrolment record with EnrollmentID. 400 Bad Request - categoryId does not belong to the given event. 404 Not Found - event or category does not exist. 409 Conflict - participant already enrolled in this event. |
 | PUT | /api/enrollments/{enrollmentId}/status | Updates the status of an enrolment, for example to cancel it. | Participant (owner) | { status } | 200 OK - updated enrolment object. 404 Not Found - enrolment does not exist. |
+
+
+
+
+
+## Results
+
+| HTTP method | Route | Description | Role required | Request body | Expected response |
+|---|---|---|---|---|---|
+| GET | /api/results/my | Retrieves every result the logged-in participant has received, for their personal performance history. | Participant | None | 200 OK - array of result objects. |
+| GET | /api/enrollments/{enrollmentId}/result | Retrieves the result linked to a specific enrolment, if one has been captured. | Participant (owner) or Organiser | None | 200 OK - result object. 404 Not Found - no result captured yet for this enrolment. |
+| POST | /api/results | Captures a finish time and finishing position for a participant's enrolment after the event. | Organiser | { enrollmentId, finishTime, position } | 201 Created - result record with ResultID. 400 Bad Request - missing or invalid fields. 409 Conflict - a result already exists for this enrolment. |
+| PUT | /api/results/{resultId} | Corrects a previously captured result, for example after a timing dispute. | Organiser | { finishTime, position } | 200 OK - updated result object. 404 Not Found - result does not exist. |
