@@ -41,3 +41,15 @@
 | POST | /api/events/{eventId}/categories | Creates a new category under a specific event, for the logged-in organiser who owns that event. | Organiser (owner of event) | { categoryName, description } | 201 Created - category record with CategoryID. 403 Forbidden - event belongs to a different organiser. 400 Bad Request - missing or invalid fields. |
 | PUT | /api/categories/{categoryId} | Updates the name or description of an existing category. | Organiser (owner of parent event) | { categoryName, description } | 200 OK - updated category object. 404 Not Found - category does not exist. |
 | DELETE | /api/categories/{categoryId} | Deletes a category, provided no enrolments currently reference it. | Organiser (owner of parent event) | None | 204 No Content - deleted successfully. 409 Conflict - category has existing enrolments. |
+
+
+
+
+## Event Enrolments
+
+| HTTP method | Route | Description | Role required | Request body | Expected response |
+|---|---|---|---|---|---|
+| GET | /api/enrollments/my | Retrieves every enrolment belonging to the logged-in participant, for their personal dashboard. | Participant | None | 200 OK - array of enrolment objects. |
+| GET | /api/events/{eventId}/enrollments | Retrieves every participant enrolled in a specific event, so the organiser can manage race-day logistics. | Organiser (owner of event) | None | 200 OK - array of enrolment objects. 403 Forbidden - event belongs to a different organiser. |
+| POST | /api/enrollments | Enrols the logged-in participant into an event by selecting one of its categories, recording the link between Participant, Event, and Category. | Participant | { eventId, categoryId } | 201 Created - enrolment record with EnrollmentID. 400 Bad Request - categoryId does not belong to the given event. 404 Not Found - event or category does not exist. 409 Conflict - participant already enrolled in this event. |
+| PUT | /api/enrollments/{enrollmentId}/status | Updates the status of an enrolment, for example to cancel it. | Participant (owner) | { status } | 200 OK - updated enrolment object. 404 Not Found - enrolment does not exist. |
