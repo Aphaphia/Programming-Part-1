@@ -102,3 +102,11 @@ INSERT INTO UserProfile (UserID, DateOfBirth, Phone, City) VALUES
 (2, '1990-07-22', '0839876543', 'Cape Town'),
 (3, '1998-11-05', '0731122334', 'Soweto'),
 (4, '2001-02-18', '0844455667', 'Pretoria');
+
+
+
+-- Three events
+INSERT INTO Events (EventName, Description, EventDate, Location, Distance, EventType, OrganiserID) VALUES
+('Soweto 10km Fun Run', 'A community fun run through the streets of Soweto.', '2026-10-10', 'Soweto, Johannesburg', 10.00, 'Run', 1),
+('Cape Town Cycle Tour', 'One of the world''s largest timed cycling events.', '2026-11-08', 'Cape Town', 109.00, 'Cycle', 2),
+('Joburg City Walk', 'A relaxed charity walk through Johannesburg CBD.', '2026-09-20', 'Johannesburg CBD', 5.00, 'Walk', 1);
