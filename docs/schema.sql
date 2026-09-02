@@ -38,3 +38,15 @@ CREATE TABLE Events (
     OrganiserID INT NOT NULL,
     CONSTRAINT FK_Events_Users FOREIGN KEY (OrganiserID) REFERENCES Users(UserID)
 );
+
+
+
+
+CREATE TABLE Categories (
+    CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    CategoryName VARCHAR(50) NOT NULL,
+    Description VARCHAR(255) NULL,
+    CONSTRAINT FK_Categories_Events FOREIGN KEY (EventID) REFERENCES Events(EventID),
+    CONSTRAINT UQ_Category_PerEvent UNIQUE (EventID, CategoryName)
+);
