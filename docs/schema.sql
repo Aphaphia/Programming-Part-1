@@ -65,3 +65,13 @@ CREATE TABLE Enrollments (
     CONSTRAINT FK_Enrollments_Categories FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
     CONSTRAINT UQ_Enrollment_PerUserEvent UNIQUE (UserID, EventID)
 );
+
+
+
+CREATE TABLE Results (
+    ResultID INT IDENTITY(1,1) PRIMARY KEY,
+    EnrollmentID INT NOT NULL UNIQUE, -- UNIQUE enforces the 0..1 relationship with Enrollments
+    FinishTime TIME NOT NULL,
+    Position INT NOT NULL,
+    CONSTRAINT FK_Results_Enrollments FOREIGN KEY (EnrollmentID) REFERENCES Enrollments(EnrollmentID)
+);
