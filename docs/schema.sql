@@ -50,3 +50,18 @@ CREATE TABLE Categories (
     CONSTRAINT FK_Categories_Events FOREIGN KEY (EventID) REFERENCES Events(EventID),
     CONSTRAINT UQ_Category_PerEvent UNIQUE (EventID, CategoryName)
 );
+
+
+
+CREATE TABLE Enrollments (
+    EnrollmentID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT NOT NULL,
+    EventID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    EnrollmentDate DATETIME NOT NULL DEFAULT GETDATE(),
+    Status VARCHAR(20) NOT NULL DEFAULT 'Confirmed' CHECK (Status IN ('Confirmed', 'Cancelled')),
+    CONSTRAINT FK_Enrollments_Users FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    CONSTRAINT FK_Enrollments_Events FOREIGN KEY (EventID) REFERENCES Events(EventID),
+    CONSTRAINT FK_Enrollments_Categories FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
+    CONSTRAINT UQ_Enrollment_PerUserEvent UNIQUE (UserID, EventID)
+);
