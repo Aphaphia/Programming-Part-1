@@ -24,3 +24,17 @@ CREATE TABLE UserProfile (
     City VARCHAR(100) NULL,
     CONSTRAINT FK_UserProfile_Users FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
+
+
+
+CREATE TABLE Events (
+    EventID INT IDENTITY(1,1) PRIMARY KEY,
+    EventName VARCHAR(150) NOT NULL,
+    Description VARCHAR(500) NULL,
+    EventDate DATE NOT NULL,
+    Location VARCHAR(150) NOT NULL,
+    Distance DECIMAL(5,2) NOT NULL,
+    EventType VARCHAR(20) NOT NULL CHECK (EventType IN ('Run', 'Walk', 'Cycle')),
+    OrganiserID INT NOT NULL,
+    CONSTRAINT FK_Events_Users FOREIGN KEY (OrganiserID) REFERENCES Users(UserID)
+);
