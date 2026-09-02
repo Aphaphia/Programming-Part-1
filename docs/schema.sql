@@ -92,3 +92,13 @@ INSERT INTO Users (FirstName, LastName, Email, Password, Role) VALUES
 INSERT INTO Users (FirstName, LastName, Email, Password, Role) VALUES
 ('Sipho', 'Mokoena', 'sipho.mokoena@gmail.com', 'HashedPassword123', 'Participant'),
 ('Anele', 'Botha', 'anele.botha@gmail.com', 'HashedPassword123', 'Participant');
+
+
+
+
+-- Profiles for all four users
+INSERT INTO UserProfile (UserID, DateOfBirth, Phone, City) VALUES
+(1, '1985-03-14', '0821234567', 'Johannesburg'),
+(2, '1990-07-22', '0839876543', 'Cape Town'),
+(3, '1998-11-05', '0731122334', 'Soweto'),
+(4, '2001-02-18', '0844455667', 'Pretoria');
