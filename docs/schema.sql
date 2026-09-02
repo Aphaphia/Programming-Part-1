@@ -129,3 +129,10 @@ INSERT INTO Enrollments (UserID, EventID, CategoryID, Status) VALUES
 (3, 1, 1, 'Confirmed'), -- Sipho enters the Soweto 10km, Under 20 category
 (4, 2, 3, 'Confirmed'), -- Anele enters the Cape Town Cycle Tour, Individual category
 (3, 3, 5, 'Confirmed'); -- Sipho enters the Joburg City Walk, Open category
+
+
+
+
+-- Sample results 
+INSERT INTO Results (EnrollmentID, FinishTime, Position) VALUES
+(1, '00:42:15', 3);
