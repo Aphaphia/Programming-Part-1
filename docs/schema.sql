@@ -121,3 +121,11 @@ INSERT INTO Categories (EventID, CategoryName, Description) VALUES
 (2, 'Individual', 'Individual cyclist entry.'),
 (2, 'Team', 'Team entry of up to 4 riders.'),
 (3, 'Open', 'Open category for all ages.');
+
+
+
+-- Sample enrolments
+INSERT INTO Enrollments (UserID, EventID, CategoryID, Status) VALUES
+(3, 1, 1, 'Confirmed'), -- Sipho enters the Soweto 10km, Under 20 category
+(4, 2, 3, 'Confirmed'), -- Anele enters the Cape Town Cycle Tour, Individual category
+(3, 3, 5, 'Confirmed'); -- Sipho enters the Joburg City Walk, Open category
