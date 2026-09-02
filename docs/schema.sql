@@ -75,3 +75,20 @@ CREATE TABLE Results (
     Position INT NOT NULL,
     CONSTRAINT FK_Results_Enrollments FOREIGN KEY (EnrollmentID) REFERENCES Enrollments(EnrollmentID)
 );
+
+
+
+
+-- =========================================
+-- SEED DATA
+-- =========================================
+
+-- Organisers
+INSERT INTO Users (FirstName, LastName, Email, Password, Role) VALUES
+('Thabo', 'Nkosi', 'thabo.nkosi@raceday.co.za', 'HashedPassword123', 'Organiser'),
+('Lindiwe', 'Dube', 'lindiwe.dube@raceday.co.za', 'HashedPassword123', 'Organiser');
+
+-- Participants
+INSERT INTO Users (FirstName, LastName, Email, Password, Role) VALUES
+('Sipho', 'Mokoena', 'sipho.mokoena@gmail.com', 'HashedPassword123', 'Participant'),
+('Anele', 'Botha', 'anele.botha@gmail.com', 'HashedPassword123', 'Participant');
