@@ -110,3 +110,14 @@ INSERT INTO Events (EventName, Description, EventDate, Location, Distance, Event
 ('Soweto 10km Fun Run', 'A community fun run through the streets of Soweto.', '2026-10-10', 'Soweto, Johannesburg', 10.00, 'Run', 1),
 ('Cape Town Cycle Tour', 'One of the world''s largest timed cycling events.', '2026-11-08', 'Cape Town', 109.00, 'Cycle', 2),
 ('Joburg City Walk', 'A relaxed charity walk through Johannesburg CBD.', '2026-09-20', 'Johannesburg CBD', 5.00, 'Walk', 1);
+
+
+
+
+-- Categories for each event
+INSERT INTO Categories (EventID, CategoryName, Description) VALUES
+(1, 'Under 20', 'Runners under the age of 20.'),
+(1, 'Senior', 'Runners aged 20 and above.'),
+(2, 'Individual', 'Individual cyclist entry.'),
+(2, 'Team', 'Team entry of up to 4 riders.'),
+(3, 'Open', 'Open category for all ages.');
