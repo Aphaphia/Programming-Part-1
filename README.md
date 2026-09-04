@@ -28,7 +28,7 @@ All planning documents are in the `/docs` folder:
 ## CI/CD
 
 A GitHub Actions workflow validates that the `/docs` folder exists and contains the required planning files on every push.
-
+docs/Screenshot 2026-09-04 030756.png
 
 
 ## Video Walkthrough
